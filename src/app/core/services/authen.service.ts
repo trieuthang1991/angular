@@ -31,9 +31,9 @@ export class AuthenService {
       return true;
     }
     else
-    {
+    
       return false;
-    }
+    
  
   }
   getLoggedInUser(): LoggedInUser {

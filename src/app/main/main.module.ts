@@ -14,7 +14,8 @@ import {UtilityService} from '../core/services/utility.service';
     HomeModule,
     RouterModule.forChild(mainRoutes)
   ],
-  providers:[AuthenService,UtilityService],
-  declarations: [MainComponent]
+  
+  declarations: [MainComponent],
+  providers:[AuthenService,UtilityService]
 })
 export class MainModule { }
