@@ -12,7 +12,10 @@ export class DataService {
   private headers : Headers
 
   constructor(private _http:Http , private _router:Router,private _authenService:AuthenService , 
-    private _notificationService:NotificationService,private _UtilityService:UtilityService){ }
+    private _notificationService:NotificationService,private _UtilityService:UtilityService){
+      this.headers  = new Headers();
+      this.headers.append('Content-Type','application/json');
+     }
   get(uri:string){
     this.headers.delete("Authorization");
     this.headers.append("Authorization","Bearer" + this._authenService.getLoggedInUser().access_token)
