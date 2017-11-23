@@ -10,6 +10,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import {AuthGuard} from './core/guards/auth.guard';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
+
 @NgModule({
   declarations: [
     AppComponent
@@ -19,7 +20,8 @@ import { PaginationModule } from 'ngx-bootstrap/pagination';
     FormsModule,
     HttpModule,
     RouterModule.forRoot(appRoutes),
-    PaginationModule.forRoot()
+    PaginationModule.forRoot(),
+  
     
   ],
   providers: [AuthGuard],
