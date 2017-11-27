@@ -13,11 +13,16 @@ import { ModalDirective } from 'ngx-bootstrap/modal';
 })
 export class FunctionComponent implements OnInit {
   @ViewChild('addEditModal') public addEditModal: ModalDirective;
+  @ViewChild('permissionModal') public permissionModal: ModalDirective;
   @ViewChild(TreeComponent)
   private treeFunction: TreeComponent;
 
   public _functionHierachy: any[];
   public _functions: any[];
+
+  public functionID: any;
+  public _permission: any[];
+
   public entity: any;
   public editFlag: boolean;
   public filter: string = '';
@@ -28,6 +33,28 @@ export class FunctionComponent implements OnInit {
   ngOnInit() {
     this.search();
   }
+  public savePermission(valid: boolean, _permission: any) {
+    if (valid) {
+      var data = {
+        Permissions: this._permission,
+        FunctionId: this.functionID
+      }
+      this._dataService.post('/api/appRole/savePermission', JSON.stringify(data)).subscribe((response: any) => {
+        this.notificationService.printSuccessMessage(response);
+        this.permissionModal.hide();
+      }, error =>this._dataService.handleError(error));
+    }
+  }
+
+
+  public showPermission(id: any) {
+    this._dataService.get('/api/appRole/getAllPermission?functionId=' + id).subscribe((response: any) => {
+      this.functionID = id;
+      this._permission = response;
+      this.permissionModal.show();
+    }, error => this._dataService.handleError(error));
+  }
+
 
   //Show add form
   public showAddModal() {
