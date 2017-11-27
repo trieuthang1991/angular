@@ -11,9 +11,11 @@ import { HttpModule } from '@angular/http';
 import {AuthGuard} from './core/guards/auth.guard';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
 
+
 @NgModule({
   declarations: [
     AppComponent
+
   ],
   imports: [
     BrowserModule,

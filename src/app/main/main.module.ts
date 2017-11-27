@@ -7,6 +7,8 @@ import { UserModule} from './user/user.module';
 import { HomeModule} from './home/home.module';
 import { AuthenService } from '../core/services/authen.service';
 import {UtilityService} from '../core/services/utility.service';
+import {SlidebarMenuComponent} from '../shared/slidebar-menu/slidebar-menu.component';
+import {TopMenuComponent} from '../shared/top-menu/top-menu.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -15,7 +17,7 @@ import {UtilityService} from '../core/services/utility.service';
     RouterModule.forChild(mainRoutes)
   ],
   
-  declarations: [MainComponent],
+  declarations: [MainComponent,SlidebarMenuComponent,TopMenuComponent],
   providers:[AuthenService,UtilityService]
 })
 export class MainModule { }
